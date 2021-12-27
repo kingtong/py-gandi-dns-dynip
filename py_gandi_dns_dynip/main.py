@@ -107,10 +107,12 @@ def get_record_ip(api_key: str, domain: str, record: str) -> Optional[str]:
         resp = requests.get(f'{GANDI_LIVEDNS_BASE_URL}/domains/{domain}/records/{record}',
                             headers={'Authorization': f'Apikey {api_key}'})
 
-        if resp.status_code == 404:
-            LOG.debug(f'Record {record} not declared on domain {domain}')
-        elif resp.status_code == 200:
+        if resp.status_code == 200:
             resp_payload = resp.json()
+            if len(resp_payload) == 0:
+                LOG.debug(f'Record {record}.{domain} is not declared')
+                return None
+
             if len(resp_payload) != 1:
                 raise RuntimeError(f'Multiple records for {record}.{domain}')
 

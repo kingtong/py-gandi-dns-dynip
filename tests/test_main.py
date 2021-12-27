@@ -154,13 +154,6 @@ def test_get_record_ip_when_not_present_then_return_none():
 
 
 @responses.activate
-def test_get_record_ip_when_not_found_then_return_none():
-    responses.add(responses.GET, f'{GANDI_LIVEDNS_BASE_URL}/domains/domain_name/records/domain_alias', status=404)
-
-    assert get_record_ip('api_key', 'domain_name', 'domain_alias') is None
-
-
-@responses.activate
 def test_get_record_ip_when_not_200_then_return_none():
     responses.add(responses.GET, f'{GANDI_LIVEDNS_BASE_URL}/domains/domain_name/records/domain_alias', status=500)
 
