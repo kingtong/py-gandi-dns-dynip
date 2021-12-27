@@ -2,14 +2,25 @@
 name = "py-gandi-dns-dynip"
 version = "0.1.0"
 description = ""
+license = "MIT"
 authors = ["Nicolas Olivier <nico@kingtong.org>"]
 
 [tool.poetry.dependencies]
 python = "^3.9"
-requests = "^2.26.0"
+requests = "^2.26"
 
 [tool.poetry.dev-dependencies]
-pytest = "^5.2"
+pylama = "^8.3"
+pytest = "^6.2"
+pytest-cov = "^3.0"
+responses = "^0.16"
+
+[tool.poetry.scripts]
+gandi-dns-dynip = "py-gandi-dns-dynip:main"
+
+[tool.pytest.ini_options]
+addopts = "--cov=py_gandi_dns_dynip --cov-report term-missing"
+testpaths = ["tests"]
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
