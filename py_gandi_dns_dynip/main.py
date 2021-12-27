@@ -172,7 +172,7 @@ def upsert_record(api_key: str, domain: str, record: str, ip: str) -> bool:
     return success
 
 
-def main(args: List[str]) -> int:
+def main(args: Optional[List[str]] = None) -> int:
     """
     Set Gandi DNS record with local public IP.
 
