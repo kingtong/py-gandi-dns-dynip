@@ -44,7 +44,7 @@ def get_config(args: List[str]) -> Dict[str, Any]:
     parser.add_argument('--record', dest='record',
                         help='Record (A) name to associate with the public IP')
     parser.add_argument('--ip', dest='ip',
-                        help='Force public IP (useful for tests or icanhazip.com unavailability)')
+                        help='Force public IP (useful for tests or if https://www.icanhazip.com is not available)')
 
     args = parser.parse_args(args)
 
