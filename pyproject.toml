@@ -10,10 +10,10 @@ python = "^3.11"
 requests = "^2.31"
 
 [tool.poetry.dev-dependencies]
-pylama = "^8.3"
-pytest = "^6.2"
-pytest-cov = "^3.0"
-responses = "^0.16"
+pylama = "^8.4"
+pytest = "^7.4"
+pytest-cov = "^4.1"
+responses = "^0.23"
 
 [tool.poetry.scripts]
 gandi-dns-dynip = "py_gandi_dns_dynip.main:main"
